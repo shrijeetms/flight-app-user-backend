@@ -27,6 +27,7 @@ public class inventoryController {
 	public ResponseEntity<Object> addInventory(@RequestBody Inventory_flight inventory_flight) {
 		inventoryService.addInventory(inventory_flight);
 		return new ResponseEntity<>("Inventory_flight Added", HttpStatus.CREATED);
+		
 	}
 	
 	@GetMapping("/airline/inventory/get")
