@@ -13,8 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.flightapp.entity.Inventory;
-import com.flightapp.entity.airline;
+import com.flightapp.entity.Inventory_flight;
 import com.flightapp.service.InventoryService;
 
 @Controller
@@ -25,19 +24,20 @@ public class inventoryController {
 	InventoryService inventoryService;
 	
 	@PostMapping("/airline/inventory/add")
-	public ResponseEntity<Object> addInventory(@RequestBody Inventory inventory) {
-		inventoryService.addInventory(inventory);
-		return new ResponseEntity<>("Inventory Added", HttpStatus.CREATED);
+	public ResponseEntity<Object> addInventory(@RequestBody Inventory_flight inventory_flight) {
+		inventoryService.addInventory(inventory_flight);
+		return new ResponseEntity<>("Inventory_flight Added", HttpStatus.CREATED);
 	}
 	
 	@GetMapping("/airline/inventory/get")
-	public List<Inventory> getAllInventories() {
+	public List<Inventory_flight> getAllInventories() {
 		return getAllInventories();
 	}
 	
 	@DeleteMapping("/airline/inventory/delete/{flightId}")
-	public List<Inventory> deleteInventories(@PathVariable Integer flightId) {
-		return deleteInventories(flightId);
+	public ResponseEntity<Object> deleteInventories(@PathVariable Long flightId) {
+		inventoryService.deleteInventory(flightId);
+		return new ResponseEntity<>("Inventory_flight Deleted", HttpStatus.OK);
 	}
 
 }

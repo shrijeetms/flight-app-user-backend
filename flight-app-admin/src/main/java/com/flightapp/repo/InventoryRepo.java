@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.flightapp.entity.*;
 
 @Repository
-public interface InventoryRepo extends JpaRepository<Inventory, Integer> {
+public interface InventoryRepo extends JpaRepository<Inventory_flight, Long> {
 
 }

@@ -5,8 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.flightapp.entity.Inventory;
-import com.flightapp.entity.airline;
+import com.flightapp.entity.Inventory_flight;
 import com.flightapp.repo.InventoryRepo;
 
 @Service
@@ -15,14 +14,13 @@ public class InventoryService {
 	@Autowired
 	InventoryRepo inventoryRepo;
 
-	public void addInventory(Inventory inventory) {
-		inventoryRepo.save(inventory);
+	public void addInventory(Inventory_flight inventory_flight) {
+		inventoryRepo.save(inventory_flight);
 	}
-	public List<Inventory> getAllInventories() {
+	public List<Inventory_flight> getAllInventories() {
 		return inventoryRepo.findAll();
 	}
-	
-	public void deleteInventory(Integer flightId) {
+	public void deleteInventory(Long flightId) {
 		inventoryRepo.deleteById(flightId);
 	}
 

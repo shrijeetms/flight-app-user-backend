@@ -1,3 +1,4 @@
+
 package com.flightapp.repo;
 
 import java.util.List;
@@ -9,9 +10,8 @@ import com.flightapp.entity.airline;
 
 @Repository
 public interface adminRepo extends JpaRepository<airline, Long> {
-	
-	
-	@Query(value="SELECT * from airline", nativeQuery=true)
-	List<airline> findAllAirline();
+
+	/*@Query(value = "SELECT * from airline", nativeQuery = true)
+	List<airline> findAllAirline();*/
 
 }
