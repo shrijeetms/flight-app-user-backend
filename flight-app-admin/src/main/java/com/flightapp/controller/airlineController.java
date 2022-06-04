@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.flightapp.entity.airline;
 
-@Controller
+@RestController
 
 @RequestMapping("/admin")
 public class airlineController {

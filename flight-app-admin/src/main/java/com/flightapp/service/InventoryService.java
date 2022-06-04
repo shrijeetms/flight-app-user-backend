@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.flightapp.entity.Inventory_flight;
+import com.flightapp.exception.FlightNotFoundException;
 import com.flightapp.repo.InventoryRepo;
 
 @Service
@@ -18,10 +19,33 @@ public class InventoryService {
 		inventoryRepo.save(inventory_flight);
 	}
 	public List<Inventory_flight> getAllInventories() {
-		return inventoryRepo.findAll();
+		
+		if(inventoryRepo.findAll().isEmpty()) {
+			throw new FlightNotFoundException();
+		}
+		else
+			return inventoryRepo.findAll();
 	}
+	
+	
 	public void deleteInventory(Long flightId) {
-		inventoryRepo.deleteById(flightId);
+		try { 
+			inventoryRepo.deleteById(flightId);
+		}
+		catch (Exception a){
+			throw new FlightNotFoundException();
+		}
+		
+	}
+	
+	public List<Inventory_flight> getAllFlights(String FlightFromPlace,
+			String FlightToPlace) {
+		
+		if(inventoryRepo.getAllFlights(FlightFromPlace, FlightToPlace).isEmpty()) {
+			throw new FlightNotFoundException();
+		}
+		else
+			return inventoryRepo.getAllFlights(FlightFromPlace, FlightToPlace);
 	}
 
 }

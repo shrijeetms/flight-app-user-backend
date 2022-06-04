@@ -14,7 +14,6 @@ public class airline {
 	};
 
 	@Id
-
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int airlineId;
 

@@ -15,4 +15,5 @@ spring:
    
   application:
     name: flightapp-admin-service
+
     

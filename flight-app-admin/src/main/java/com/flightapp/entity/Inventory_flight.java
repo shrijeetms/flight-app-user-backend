@@ -18,7 +18,6 @@ public class Inventory_flight {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long flightId;
-
 	@Column
 	private String FlightAirline;
 	@Column

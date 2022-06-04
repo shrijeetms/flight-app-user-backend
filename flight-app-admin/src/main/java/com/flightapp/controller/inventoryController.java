@@ -1,5 +1,6 @@
 package com.flightapp.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.flightapp.entity.Inventory_flight;
 import com.flightapp.service.InventoryService;
-
-@Controller
+import org.springframework.web.bind.annotation.*;
+@RestController
 @RequestMapping("/admin")
 public class inventoryController {
 	
@@ -26,13 +27,13 @@ public class inventoryController {
 	@PostMapping("/airline/inventory/add")
 	public ResponseEntity<Object> addInventory(@RequestBody Inventory_flight inventory_flight) {
 		inventoryService.addInventory(inventory_flight);
-		return new ResponseEntity<>("Inventory_flight Added", HttpStatus.CREATED);
-		
+		return new ResponseEntity<>("Inventory_flight Added", HttpStatus.CREATED);	
 	}
 	
-	@GetMapping("/airline/inventory/get")
+	@GetMapping("/airline/inventory/getInventory")
 	public List<Inventory_flight> getAllInventories() {
-		return getAllInventories();
+		System.out.print("test");
+		return inventoryService.getAllInventories();
 	}
 	
 	@DeleteMapping("/airline/inventory/delete/{flightId}")
@@ -40,5 +41,13 @@ public class inventoryController {
 		inventoryService.deleteInventory(flightId);
 		return new ResponseEntity<>("Inventory_flight Deleted", HttpStatus.OK);
 	}
+	
+	@GetMapping("/airline/inventory/getAllFlights/{FlightFromPlace}/{FlightToPlace}")
+	public List<Inventory_flight> getAllFlights(@PathVariable String FlightFromPlace,
+			@PathVariable String FlightToPlace) {
+		return inventoryService.getAllFlights(FlightFromPlace, FlightToPlace);
+	}
+	
+	
 
 }
