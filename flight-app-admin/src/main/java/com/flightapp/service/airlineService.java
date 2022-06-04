@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.flightapp.entity.Inventory;
 import com.flightapp.entity.airline;
 import com.flightapp.repo.adminRepo;
 
@@ -15,7 +16,7 @@ public class airlineService {
 	adminRepo adminrepo;
 	
 	public List<airline> getAllAirlines() {
-		return adminrepo.findAll();
+		return adminrepo.findAllAirline();
 	}
 	
 	public void addAirline(airline airline) {
@@ -27,5 +28,6 @@ public class airlineService {
 		airline.setAirlineId(airlineId);
 		adminrepo.save(airline);
 	}
+
 
 }

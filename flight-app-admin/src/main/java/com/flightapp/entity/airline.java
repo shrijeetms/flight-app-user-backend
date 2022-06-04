@@ -10,7 +10,7 @@ import javax.persistence.Id;
 public class airline {
 	
 	
-	public airline() {}
+	public airline() {};
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

@@ -13,7 +13,7 @@ import com.flightapp.entity.airline;
 
 @Controller
 @RequestMapping("/admin")
-public class adminController {
+public class airlineController {
 	
 	@Autowired
 	com.flightapp.service.airlineService airlineService;
@@ -34,7 +34,7 @@ public class adminController {
 		 airlineService.blockedAirline(airlineId,airline);
 		return new ResponseEntity<>("Airline Blocked", HttpStatus.OK);
 	}
-	
+
 	
 	
 

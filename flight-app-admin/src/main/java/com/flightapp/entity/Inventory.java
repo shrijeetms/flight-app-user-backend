@@ -1,18 +1,21 @@
 package com.flightapp.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name ="Inventories")
 public class Inventory {
 	
-	public Inventory() {}
+	public Inventory() {};
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@GeneratedValue(strategy = GenerationType.AUTO)
 	private int flightId;
 	@Column
 	private String airline;
@@ -21,23 +24,25 @@ public class Inventory {
 	@Column
 	private String toPlace;
 	@Column
-	private String startDate;
+	private Date startDate;
 	@Column
-	private String endDate;
+	private Date endDate;
 	@Column
-	private String scheduledDays;
+	private int scheduledDays;
 	@Column
 	private String instrumentUsed;
 	@Column
-	private String bussinessSeats;
+	private int bussinessSeats;
 	@Column
-	private String non_businessSeats;
+	private int nonBusinessSeats;
 	@Column
-	private String price;
+	private double price;
 	@Column
-	private String rows;
+	private int rows;
 	@Column
 	private String meal;
+	
+	
 	public int getFlightId() {
 		return flightId;
 	}
@@ -62,22 +67,22 @@ public class Inventory {
 	public void setToPlace(String toPlace) {
 		this.toPlace = toPlace;
 	}
-	public String getStartDate() {
+	public Date getStartDate() {
 		return startDate;
 	}
-	public void setStartDate(String startDate) {
+	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
-	public String getEndDate() {
+	public Date getEndDate() {
 		return endDate;
 	}
-	public void setEndDate(String endDate) {
+	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
-	public String getScheduledDays() {
+	public int getScheduledDays() {
 		return scheduledDays;
 	}
-	public void setScheduledDays(String scheduledDays) {
+	public void setScheduledDays(int scheduledDays) {
 		this.scheduledDays = scheduledDays;
 	}
 	public String getInstrumentUsed() {
@@ -86,28 +91,28 @@ public class Inventory {
 	public void setInstrumentUsed(String instrumentUsed) {
 		this.instrumentUsed = instrumentUsed;
 	}
-	public String getBussinessSeats() {
+	public int getBussinessSeats() {
 		return bussinessSeats;
 	}
-	public void setBussinessSeats(String bussinessSeats) {
+	public void setBussinessSeats(int bussinessSeats) {
 		this.bussinessSeats = bussinessSeats;
 	}
-	public String getNon_businessSeats() {
-		return non_businessSeats;
+	public int getNonBusinessSeats() {
+		return nonBusinessSeats;
 	}
-	public void setNon_businessSeats(String non_businessSeats) {
-		this.non_businessSeats = non_businessSeats;
+	public void setNonBusinessSeats(int nonBusinessSeats) {
+		this.nonBusinessSeats = nonBusinessSeats;
 	}
-	public String getPrice() {
+	public double getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
-	public String getRows() {
+	public int getRows() {
 		return rows;
 	}
-	public void setRows(String rows) {
+	public void setRows(int rows) {
 		this.rows = rows;
 	}
 	public String getMeal() {
@@ -120,12 +125,12 @@ public class Inventory {
 	public String toString() {
 		return "Inventory [flightId=" + flightId + ", airline=" + airline + ", fromPlace=" + fromPlace + ", toPlace="
 				+ toPlace + ", startDate=" + startDate + ", endDate=" + endDate + ", scheduledDays=" + scheduledDays
-				+ ", instrumentUsed=" + instrumentUsed + ", bussinessSeats=" + bussinessSeats + ", non_businessSeats="
-				+ non_businessSeats + ", price=" + price + ", rows=" + rows + ", meal=" + meal + "]";
+				+ ", instrumentUsed=" + instrumentUsed + ", bussinessSeats=" + bussinessSeats + ", nonBusinessSeats="
+				+ nonBusinessSeats + ", price=" + price + ", rows=" + rows + ", meal=" + meal + "]";
 	}
-	public Inventory(int flightId, String airline, String fromPlace, String toPlace, String startDate, String endDate,
-			String scheduledDays, String instrumentUsed, String bussinessSeats, String non_businessSeats, String price,
-			String rows, String meal) {
+	public Inventory(int flightId, String airline, String fromPlace, String toPlace, Date startDate, Date endDate,
+			int scheduledDays, String instrumentUsed, int bussinessSeats, int nonBusinessSeats, double price, int rows,
+			String meal) {
 		super();
 		this.flightId = flightId;
 		this.airline = airline;
@@ -136,11 +141,12 @@ public class Inventory {
 		this.scheduledDays = scheduledDays;
 		this.instrumentUsed = instrumentUsed;
 		this.bussinessSeats = bussinessSeats;
-		this.non_businessSeats = non_businessSeats;
+		this.nonBusinessSeats = nonBusinessSeats;
 		this.price = price;
 		this.rows = rows;
 		this.meal = meal;
 	}
+	
 	
 
 }
